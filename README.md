@@ -2,6 +2,11 @@
 
 A React application that provides magical genie responses through a Supabase Edge Function, with user authentication using Supabase Auth.
 
+## 🖼️ Preview
+
+![Genie App Screenshot](./public/genie-preview.png)
+
+
 ## Features
 
 - User authentication with Supabase Auth
@@ -104,10 +109,11 @@ curl -i --location --request POST 'http://localhost:54321/functions/v1/genie-res
 
 ## Authentication Flow
 
-1. Users start at the login page
+1. Users start at `/login` page
 2. They can either login with existing credentials or signup for a new account
-3. Once authenticated, they can access the Genie component
-4. If they try to access the Genie component without being logged in, they'll be redirected to login
+3. After successful login, they are redirected to `/Home`
+4. The `/Home` page is protected and only accessible to authenticated users
+5. If they try to access `/Home` without being logged in, they'll be redirected to `/login`
 
 ## Authentication Features
 

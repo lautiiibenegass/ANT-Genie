@@ -27,7 +27,7 @@ const Login: FC = () => {
 
       if (data?.user) {
         console.log('Login successful', data.user);
-        navigate('/');
+        navigate('/Home');
       }
     } catch (err) {
       setError('An unexpected error occurred');

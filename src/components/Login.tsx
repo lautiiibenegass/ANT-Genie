@@ -13,13 +13,16 @@ const Login: React.FC = () => {
     setError('');
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
       if (error) throw error;
-      navigate('/');
+      if (data?.user) {
+        console.log('Login successful', data.user);
+        navigate('/Home');
+      }
     } catch (error: any) {
       setError(error.message);
     }

@@ -19,14 +19,14 @@ const ProtectedRoute: FC<ProtectedRouteProps> = ({ children }) => {
 
     checkAuth();
 
-    const { data: authListener } = supabase.auth.onAuthStateChange(
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         setAuthenticated(!!session);
       }
     );
 
     return () => {
-      authListener?.unsubscribe();
+      subscription?.unsubscribe();
     };
   }, []);
 
